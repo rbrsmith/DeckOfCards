@@ -1,8 +1,10 @@
+import java.util.Random;
+
 /**
  * Class for representing a deck of playing cards
  * A deck holds 52 playing cards (54 including Joker)
  */
-public class Deck {
+public class Deck implements Shuffle {
 
     /**
      * We use simple array to hold our cards
@@ -58,6 +60,21 @@ public class Deck {
     }
 
     /**
+     *  Shuffle the cards so that they are in random order
+     */
+    public void shuffle() {
+        Random rand = new Random();
+        int n = 0;
+        for(int i = 0; i < cardsInDeck; i += 1) {
+            n = rand.nextInt(cardsInDeck -1);
+            swap(i, n);
+        }
+
+
+    }
+
+
+    /**
      *
      * @return String for printing
      */
@@ -71,10 +88,25 @@ public class Deck {
     }
 
     /**
+     *
+     * @param i index of first card in swap
+     * @param j index of scond card in swap
+     */
+    private void swap(int i, int j) {
+        Card tmpCard = cards[i];
+        cards[i] = cards[j];
+        cards[j] = tmpCard;
+    }
+
+
+    /**
      * Runnable main for the program
      */
     public static void main(String[] args) {
         Deck deck = new Deck();
+        System.out.println(deck);
+        System.out.println("\nEvery day I'm shuffling\n");
+        deck.shuffle();
         System.out.println(deck);
 
     }

@@ -44,6 +44,34 @@ public class Card {
         return getValue() + " of " + getSuit();
     }
 
+    /**
+     *
+     * @return int HashCode of the object
+     */
+    @Override
+    public int hashCode() {
+        return suit.hashCode() + value.hashCode();
+    }
+
+    /**
+     *
+     * @param obj Object which we are determining if this Card is equal to
+     * @return True if obj is equal, False otherwise
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Card))
+            return false;
+        if (obj == this)
+            return true;
+
+        Card newCard = (Card) obj;
+        if(newCard.getSuit() == this.getSuit() &&
+                newCard.getValue() == this.getValue()) return true;
+
+        return false;
+    }
+
 
 
 
