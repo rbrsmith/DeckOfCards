@@ -47,14 +47,14 @@ public class DeckTest {
     /**
      * Simple shuffle test - shuffle new deck 104 times
      * odds are that the cards at the top of the deck
-     * is only the same place twice
+     * is only the same place max twice
      */
     public void simpleShuffleTest() throws Exception {
         Map<Card, Integer> countMap = new HashMap<>();
         Integer numerTimeSeen;
         Card topCard;
         int i = 0;
-        while(i < 104) {
+        while(i < 108) {
             deck.shuffle();
             topCard = deck.getTop();
             numerTimeSeen = countMap.get(topCard);

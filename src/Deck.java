@@ -69,8 +69,6 @@ public class Deck implements Shuffle {
             n = rand.nextInt(cardsInDeck -1);
             swap(i, n);
         }
-
-
     }
 
 
@@ -108,7 +106,6 @@ public class Deck implements Shuffle {
         System.out.println("\nEvery day I'm shuffling\n");
         deck.shuffle();
         System.out.println(deck);
-
     }
 
 }
